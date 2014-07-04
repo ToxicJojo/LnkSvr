@@ -1,0 +1,19 @@
+-if(notification && notification.type === 'error')
+  script notification.showError('
+    =notification.message
+    ')
+
+-if(notification && notification.type === 'info')
+  script notification.showInfo('
+    =notification.message
+    ')
+
+-if(notification && notification.type === 'warning')
+  script notification.showWarning('
+    =notification.message
+    ')
+
+-if(notification && notification.type === 'success')
+  script notification.showSuccess('
+    =notification.message
+    ')
