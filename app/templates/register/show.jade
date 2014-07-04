@@ -1,0 +1,23 @@
+extends ../layouts/application
+
+block content
+  .panel.panel-default
+    .panel-heading
+      h3.panel-title Register
+    .panel-body
+      form.form-horizontal( role="form", method="post")
+        .form-group
+          label.col-sm-2.control-label( for="inputUsername") Username
+          .col-sm-10
+            input#inputUsername.form-control( placeholder="Username", type="text", name="username")
+        .form-group
+          label.col-sm-2.control-label( for="inputEmail") Email
+          .col-sm-10
+            input#inputEmail.form-control( placeholder="Email", type="email", name="email")
+        .form-group
+          label.col-sm-2.control-label( for="inputPassword") Password
+          .col-sm-10
+            input#inputPassword.form-control( placeholder="Password", type="password", name="password")
+        .form-group
+          .col-sm-offset-2.col-sm-10
+            button.btn.btn-default( type="submit") Sign up
