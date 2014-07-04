@@ -9,7 +9,9 @@ var create = function(user, response, callback) {
     name: user.name
   };
 
-  response.cookie('session', session);
+  response.cookie('session', session, {
+    maxAge: 365 * 24 * 60 * 60
+  });
 
   user.save(callback);
 };
