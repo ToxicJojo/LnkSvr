@@ -4,7 +4,12 @@ var sessionController = App.require('controllers/session');
 
 var show = function(request, response) {
   var params = {
-    page_title: 'LnkSvr - Login'
+    page_title: 'LnkSvr - Login',
+    loginStatus: request.query.status,
+    notification: {
+      type: 'error',
+      message: 'Failed to sign in. Please check your username and password.'
+    }
   };
   App.require('views/login').show(request, response, params);
 };
