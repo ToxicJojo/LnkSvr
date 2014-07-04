@@ -44,7 +44,6 @@ var login = function(request, response) {
 };
 
 var loginFailed = function(request, response) {
-  // TODO display a message to the user.
   response.redirect('/login?status=failed');
 };
 
