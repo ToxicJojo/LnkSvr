@@ -1,3 +1,4 @@
-div#notification( class='alert alert-dismissable alert-#{notification.type}')
-  .close( type='button', data-dismiss='alert', aria-hidden='true') &times;
-  =notification.message
+- if(notification)
+  div#notification( class='alert alert-dismissable alert-#{notification.type}')
+    .close( type='button', data-dismiss='alert', aria-hidden='true') &times;
+    =notification.message
