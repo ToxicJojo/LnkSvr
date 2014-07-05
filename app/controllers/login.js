@@ -10,7 +10,7 @@ var show = function(request, response) {
 
   if (request.query.status === 'failed') {
     params.notification = {
-      type: 'error',
+      type: 'danger',
       message: 'Failed to sign in. Please check your username and password.'
     };
   }
