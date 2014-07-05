@@ -25,3 +25,5 @@ var notification = {
     $('#notification').addClass('alert-success');
   }
 };
+
+module.exports = notification;
