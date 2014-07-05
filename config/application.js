@@ -48,7 +48,7 @@ App.app.use(cookieParser());
 
 App.app.use(App.require('middleware/authenticate'));
 
-App.app.use(express.static(App.appPath('../public')));
+App.app.use(express.static(App.appPath('../public/build')));
 
 App.app.use(require('./router'));
 
