@@ -1,16 +1,20 @@
 var bcrypt = require('bcrypt');
 var User = App.require('models/user');
-var sessionController = App.require('controllers/session');
+var sessionApi = App.require('api/session');
 
 var show = function(request, response) {
   var params = {
     page_title: 'LnkSvr - Login',
-    loginStatus: request.query.status,
-    notification: {
+    loginStatus: request.query.status
+  };
+
+  if (request.query.status === 'failed') {
+    params.notification = {
       type: 'error',
       message: 'Failed to sign in. Please check your username and password.'
-    }
-  };
+    };
+  }
+
   App.require('views/login').show(request, response, params);
 };
 
@@ -27,7 +31,7 @@ var login = function(request, response) {
         if (result) {
           // Login successfull.
           // Create a new session and redirect the user to the dashboard.
-          sessionController.create(user, response, function(error, user) {
+          sessionApi.create(user, response, function(error, user) {
             response.redirect('/dashboard');
           });
         } else {

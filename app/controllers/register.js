@@ -1,6 +1,6 @@
 var bcrypt = require('bcrypt'),
-  userController = App.require('controllers/user'),
-  sessionController = App.require('controllers/session');
+  userApi = App.require('api/user'),
+  sessionApi = App.require('api/session');
 
 var show = function(request, response) {
   var params = {
@@ -17,14 +17,14 @@ var registerUser = function(request, response) {
     var encrypted_password = hash;
 
     // Let the userController create the new user.
-    var user = userController.create(username, email, encrypted_password, function(error, user) {
+    var user = userApi.create(username, email, encrypted_password, function(error, user) {
       if (error) {
         console.log(error);
         // TODO display an error message to the user.
         response.redirect('/register');
       } else {
         // Sign in the user  and redirect him to the dashboard.
-        sessionController.create(user, response, function() {
+        sessionApi.create(user, response, function() {
           response.redirect('/dashboard');
         });
       }
