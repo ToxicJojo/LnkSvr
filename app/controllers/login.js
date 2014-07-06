@@ -5,6 +5,7 @@ var sessionApi = App.require('api/session');
 var show = function(request, response) {
   var params = {
     page_title: 'LnkSvr - Login',
+    user: request.user,
     loginStatus: request.query.status
   };
 

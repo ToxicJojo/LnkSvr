@@ -4,7 +4,8 @@ var bcrypt = require('bcrypt'),
 
 var show = function(request, response) {
   var params = {
-    page_title: 'LnkSvr - Register'
+    page_title: 'LnkSvr - Register',
+    user: request.user
   };
   App.require('views/register').show(request, response, params);
 };
