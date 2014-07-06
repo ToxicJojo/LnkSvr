@@ -4,5 +4,6 @@ var express = require('express'),
 
 router.get('/', controller.show);
 router.post('/', controller.login);
+router.get('/logout', controller.logout);
 
 module.exports = router;

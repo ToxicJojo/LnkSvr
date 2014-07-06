@@ -33,19 +33,23 @@ var login = function(request, response) {
           // Login successfull.
           // Create a new session and redirect the user to the dashboard.
           sessionApi.create(user, response, function(error, user) {
-            response.redirect('/dashboard');
+            response.redirect('/');
           });
         } else {
           // Wrong password.
           loginFailed(request, response);
         }
       });
-
     } else {
       // No user with the given name was found.
       loginFailed(request, response);
     }
   });
+};
+
+var logout = function(request, response) {
+  sessionApi.destroy(response);
+  response.redirect('/login');
 };
 
 var loginFailed = function(request, response) {
@@ -54,3 +58,4 @@ var loginFailed = function(request, response) {
 
 module.exports.show = show;
 module.exports.login = login;
+module.exports.logout = logout;

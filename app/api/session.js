@@ -16,6 +16,10 @@ var create = function(user, response, callback) {
   user.save(callback);
 };
 
+var destroy = function(response) {
+  response.clearCookie('session');
+};
+
 // Generates a new random authToken.
 var generateAuthToken = function() {
   var buff = crypto.randomBytes(64);
@@ -28,3 +32,4 @@ var generateAuthToken = function() {
 };
 
 module.exports.create = create;
+module.exports.destroy = destroy;
