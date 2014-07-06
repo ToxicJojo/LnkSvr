@@ -5,12 +5,4 @@ var show = function(request, response) {
   App.require('views/home').show(request, response, params);
 };
 
-var newLink = function(request, response) {
-
-
-
-};
-
-
 module.exports.show = show;
-module.exports.newLink = newLink;
