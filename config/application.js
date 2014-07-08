@@ -55,6 +55,7 @@ App.app.use(require('./router'));
 // Handle 404
 App.app.use(function(request, response) {
   response.render('404', {
-    page_title: 'LnkSvr - 404'
+    page_title: 'LnkSvr - 404',
+    user: request.user
   });
 });
