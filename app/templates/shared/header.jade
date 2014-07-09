@@ -8,9 +8,10 @@
         span.icon-bar
       a.navbar-brand(href='/') LnkSvr
     .navbar-collapse.collapse
-      ul.nav.navbar-nav
-        li
-          a( href='/link') My Links
+      if (user)
+        ul.nav.navbar-nav
+          li
+            a( href='/link') My Links
       ul.nav.navbar-nav.navbar-right
         - if(!user)
           li
