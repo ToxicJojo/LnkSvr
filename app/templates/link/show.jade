@@ -1,0 +1,15 @@
+extends ../layouts/application
+
+block content
+  table.table.table-hover
+    thead
+      tr
+        th Viewed
+        th Url
+        th Date
+        th Tags
+    tbody
+    for link in links
+      include singleLink
+
+  script( src='javascripts/linkList.js')

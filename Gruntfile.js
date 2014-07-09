@@ -5,7 +5,8 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     browserify: {
       'public/build/javascripts/home.js': ['public/javascripts/home.js'],
-      'public/build/javascripts/notification.js': ['public/javascripts/notification.js']
+      'public/build/javascripts/notification.js': ['public/javascripts/notification.js'],
+      'public/build/javascripts/linkList.js': ['public/javascripts/linkList.js'],
     },
     cssmin: {
       minify: {
@@ -21,11 +22,9 @@ module.exports = function(grunt) {
     }
   });
 
-  // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  // Default task(s).
   grunt.registerTask('default', ['browserify', 'cssmin']);
 };

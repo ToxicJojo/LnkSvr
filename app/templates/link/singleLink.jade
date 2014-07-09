@@ -1,0 +1,13 @@
+tr
+  th
+    if link.viewed
+      input(type='checkbox', value='#{link._id}', checked='true')
+    else
+      input(type='checkbox', value='#{link._id}')
+  th
+    a( href='#{link.url}') #{link.url}
+  th #{link.date}
+  th
+    for tag in link.tags
+      span.label.label-default #{tag}
+      | &nbsp;

@@ -9,6 +9,23 @@ var create = function(url, username, callback) {
   link.save(callback);
 };
 
+var update = function(link, params, callback) {
+  if (params.viewed !== undefined) {
+    link.viewed = params.viewed;
+  }
+
+  if (params.url) {
+    link.url = params.url;
+  }
+
+  if (params.tags) {
+    link.tags = params.tags;
+  }
+
+  link.save(callback);
+};
+
 
 
 module.exports.create = create;
+module.exports.update = update;
