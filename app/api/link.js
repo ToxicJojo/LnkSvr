@@ -22,10 +22,19 @@ var update = function(link, params, callback) {
     link.tags = params.tags;
   }
 
+  if (params.notes) {
+    link.notes = params.notes;
+  }
+
   link.save(callback);
+};
+
+var destroy = function(link, callback) {
+  link.remove(callback);
 };
 
 
 
 module.exports.create = create;
 module.exports.update = update;
+module.exports.destroy = destroy;

@@ -1,9 +1,9 @@
 tr
   th
     if link.viewed
-      input(type='checkbox', value='#{link._id}', checked='true')
+      input( type='checkbox', value='#{link._id}', checked='true')
     else
-      input(type='checkbox', value='#{link._id}')
+      input( type='checkbox', value='#{link._id}')
   th
     a( href='#{link.url}') #{link.url}
   th #{link.date}
@@ -11,3 +11,6 @@ tr
     for tag in link.tags
       span.label.label-default #{tag}
       | &nbsp;
+  th
+    a.btn.btn-default( href='/link/edit/#{link._id}')
+      i.fa.fa-pencil

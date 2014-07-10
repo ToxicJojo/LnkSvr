@@ -7,5 +7,8 @@ router.use(ensureAuthenticated);
 router.get('/', controller.show);
 router.post('/', controller.create);
 router.post('/:linkId', controller.update);
+router.post('/destroy/:linkId', controller.destroy);
+router.get('/edit/:linkId', controller.showEdit);
+
 
 module.exports = router;

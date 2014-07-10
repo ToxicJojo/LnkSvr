@@ -18,14 +18,15 @@ var linkSchema = mongoose.Schema({
     type: Boolean,
     default: false
   },
-  tags: [String]
+  tags: [String],
+  notes: String
 });
 
 
 // Finds all links owned by the user with the given name.
 linkSchema.statics.findByUsername = function(name, callback) {
   this.find({
-    owner: new RegExp(name, 'i')
+    owner: name
   }, callback);
 };
 

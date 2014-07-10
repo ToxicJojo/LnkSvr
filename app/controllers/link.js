@@ -48,6 +48,37 @@ var update = function(request, response) {
   });
 };
 
+var destroy = function(request, response) {
+  var linkId = request.params.linkId;
+
+  Link.findById(linkId, function(err, link) {
+    //Only destroy the link if the user owning the link issued the request.
+    if (request.user.name === link.owner) {
+      linkApi.destroy(link, function(error, link) {
+        response.json(200, link);
+      });
+    } else {
+      response.send(401);
+    }
+  });
+};
+
+var showEdit = function(request, response) {
+  var linkId = request.params.linkId;
+
+  Link.findById(linkId, function(err, link) {
+    var params = {
+      page_title: 'LnkSvr - Edit',
+      link: link,
+      user: request.user
+    };
+
+    App.require('views/link').showEdit(request, response, params);
+  });
+};
+
 module.exports.show = show;
 module.exports.create = create;
 module.exports.update = update;
+module.exports.showEdit = showEdit;
+module.exports.destroy = destroy;

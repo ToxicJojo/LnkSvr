@@ -7,6 +7,7 @@ module.exports = function(grunt) {
       'public/build/javascripts/home.js': ['public/javascripts/home.js'],
       'public/build/javascripts/notification.js': ['public/javascripts/notification.js'],
       'public/build/javascripts/linkList.js': ['public/javascripts/linkList.js'],
+      'public/build/javascripts/edit.js': ['public/javascripts/edit.js']
     },
     cssmin: {
       minify: {

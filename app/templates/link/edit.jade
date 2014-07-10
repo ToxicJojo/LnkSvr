@@ -1,0 +1,57 @@
+extends ../layouts/application
+
+block content
+
+  input#linkId( type='hidden', value='#{link._id}')
+  .row
+    .col-lg-1
+      .form-group
+        label Viewed:
+        if (link.viewed)
+          i.fa.fa-check-square-o.fa-4x#viewedCheckbox( value='true')
+        else
+          i.fa.fa-square-o.fa-4x#viewedCheckbox( value='false')
+    .col-lg-10
+      .form-group
+        label Url:
+        input.form-control.input-lg#urlInput( type='text' value='#{link.url}')
+    .col-lg-1
+      .form-group
+        label Delete:
+        .btn.btn-danger#deleteLinkButton
+          i.fa.fa-trash-o.fa-2x
+  .row
+    .col-lg-8
+      .form-group
+        label Notes:
+        textarea.form-control#notesInput( rows='6', placeholder='Important notes...')
+          if link.notes
+           | #{link.notes}
+    .col-lg-4
+      .panel.panel-default
+        .panel-heading
+           .panel-title Tags
+        .panel-body#tagList
+          for tag in link.tags
+            h3.tag( data-value='#{tag}', data-type='tag')
+              span.label.label-default #{tag}
+                | &nbsp;
+                i.fa.fa-times( data-type='removeTag')
+        .panel-footer
+          .input-group
+            .input-group-addon
+              i.fa.fa-tag
+            input.form-control#newTagInput( type='text', placeholder='New and awesome tag')
+            .input-group-btn
+              .btn.btn-default#addTagButton Add
+
+  hr
+  .row
+    .col-lg-2.col-lg-offset-10
+        a.btn.btn-default( href='/link') Back
+        | &nbsp;
+        .btn.btn-success#saveButton
+          span#saveText Save
+          i.fa.fa-spinner.fa-spin.hidden#saveSpinner
+
+  script( src='/javascripts/edit.js')
